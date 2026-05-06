@@ -9,8 +9,7 @@ export const profile = {
   github: 'https://github.com/suhanibundela',
   youtube: 'https://www.youtube.com/@Tech-with-Suhani',
   instagramPublic: 'https://www.instagram.com/bangtan_maervel2.0/',
-  instagramPersonal: 'https://www.instagram.com/bangtan_marvel?igsh=MTNoZWhsc3U0aGFyOQ==',
-};
+instagramPersonal: "https://www.instagram.com/bangtan_marvel2.o?igsh=cHA1bW5sdmExOGNt",};
 
 export const skills = [
   'Technical Content', 'Product Marketing', 'AI Tutorials', 'SEO / GEO / AEO',
