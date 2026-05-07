@@ -81,34 +81,6 @@ function Hero() {
 
         <h2>{profile.role}</h2>
         <p className="lead">{profile.tagline}</p>
-
-        <div className="heroHighlights" aria-label="Portfolio highlights">
-          <span>Creative Tech</span>
-          <span>AI Tutorials</span>
-          <span>Cloud Stories</span>
-        </div>
-
-        <div className="heroActionPanel">
-          <div className="heroBtns">
-            <a className="btn primary" href="#">
-              View Portfolio
-            </a>
-
-            <a className="btn creatorCta" href="#contact">
-              Let’s Connect
-            </a>
-          </div>
-
-          <div className="socials">
-            <A href={profile.instagramPersonal}>Instagram</A>
-            <A href={profile.youtube}>YouTube</A>
-            <A href={profile.linkedin}>LinkedIn</A>
-            <A href={profile.github}>GitHub</A>
-            <A href={`mailto:${profile.email}`}>
-              <Mail size={18} /> Email
-            </A>
-          </div>
-        </div>
       </div>
 
       <div className="heroVisual reveal">
