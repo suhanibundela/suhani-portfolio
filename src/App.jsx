@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Mail, MapPin, Download, Sparkles } from "lucide-react";
 import { profile, skills, projects, experience, education } from "./data/profile";
 
@@ -6,6 +7,49 @@ const A = ({ href, children, className = "" }) => (
     {children}
   </a>
 );
+
+function ParallaxBackdrop() {
+  useEffect(() => {
+    let frame = 0;
+
+    const update = () => {
+      const y = window.scrollY || 0;
+      const root = document.documentElement;
+
+      root.style.setProperty("--parallax-a", `${y * -0.08}px`);
+      root.style.setProperty("--parallax-b", `${y * 0.12}px`);
+      root.style.setProperty("--parallax-c", `${y * -0.18}px`);
+      root.style.setProperty("--parallax-d", `${y * 0.06}px`);
+      frame = 0;
+    };
+
+    const onScroll = () => {
+      if (!frame) {
+        frame = window.requestAnimationFrame(update);
+      }
+    };
+
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (frame) {
+        window.cancelAnimationFrame(frame);
+      }
+    };
+  }, []);
+
+  return (
+    <div className="parallaxBackdrop" aria-hidden="true">
+      <span className="parallaxLayer layerOne"></span>
+      <span className="parallaxLayer layerTwo"></span>
+      <span className="parallaxLayer layerThree"></span>
+      <span className="parallaxLayer layerFour"></span>
+      <span className="parallaxGrid"></span>
+    </div>
+  );
+}
 
 function Navbar() {
   return (
@@ -38,6 +82,12 @@ function Hero() {
         <h2>{profile.role}</h2>
         <p className="lead">{profile.tagline}</p>
 
+        <div className="heroHighlights" aria-label="Portfolio highlights">
+          <span>Creative Tech</span>
+          <span>AI Tutorials</span>
+          <span>Cloud Stories</span>
+        </div>
+
         <div className="heroBtns">
           <a className="btn primary" href="#projects">
             View Portfolio
@@ -63,14 +113,15 @@ function Hero() {
         </div>
       </div>
 
-   <div className="heroVisual reveal">
-  <div className="glow"></div>
-  <img
-    src="/assets/profile-pink.jpeg"
-    alt="Suhani Bundela"
-    className="portrait"
-  />
-</div>
+      <div className="heroVisual reveal">
+        <div className="glow"></div>
+        <div className="motionRibbon" aria-hidden="true"></div>
+        <img
+          src="/assets/profile-pink.jpeg"
+          alt="Suhani Bundela"
+          className="portrait"
+        />
+      </div>
     </section>
   );
 }
@@ -173,19 +224,61 @@ function Projects() {
 function Creator() {
   return (
     <section className="section creator reveal">
-      <img src="/assets/youtube-banner.png" alt="Tech with Suhani banner" />
-
-      <div>
+      <div className="creatorHeader">
         <p className="eyebrow">Creator Side</p>
-        <h2>Tech with Suhani</h2>
+        <h2>Creating content across YouTube and Instagram</h2>
         <p>
-          I create educational content around AI, GPUs, tutorials, and practical
-          learning.
+          Instagram is where I’m more active and connected with my audience,
+          while YouTube is my space for detailed tutorials.
         </p>
+      </div>
 
-        <A href={profile.youtube} className="btn primary">
-          Visit YouTube
-        </A>
+      <div className="creatorGrid">
+        <article className="creatorCard youtubeCard">
+          <img
+            src="/assets/youtube-banner.png"
+            alt="Tech with Suhani banner"
+            className="creatorMedia"
+          />
+
+          <div>
+            <p className="creatorLabel">YouTube</p>
+            <h3>Tech with Suhani</h3>
+            <p>
+              Educational content around AI, GPUs, tutorials, and practical
+              learning.
+            </p>
+
+            <A href={profile.youtube} className="btn primary">
+              Visit YouTube
+            </A>
+          </div>
+        </article>
+
+        <article className="creatorCard instagramCard">
+          <div className="instagramProfile">
+            <div className="instagramAvatar">
+              <img
+                src="/assets/WhatsApp%20Image%202026-05-07%20at%2011.34.11%20AM.jpeg"
+                alt="Suhani Bundela Instagram profile"
+              />
+            </div>
+            <strong>{profile.instagramHandle}</strong>
+          </div>
+
+          <div>
+            <p className="creatorLabel">Instagram</p>
+            <h3>My main creator space</h3>
+            <p>
+              Quick updates, personal content, learning moments, and creator
+              side posts.
+            </p>
+
+            <A href={profile.instagramPersonal} className="btn instagramBtn">
+              View Instagram
+            </A>
+          </div>
+        </article>
       </div>
     </section>
   );
@@ -239,6 +332,7 @@ function Contact() {
 export default function App() {
   return (
     <>
+      <ParallaxBackdrop />
       <Navbar />
       <main>
         <Hero />

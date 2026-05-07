@@ -8,13 +8,15 @@ export const profile = {
   linkedin: 'https://www.linkedin.com/in/suhani-bundela-780721262/',
   github: 'https://github.com/suhanibundela',
   youtube: 'https://www.youtube.com/@Tech-with-Suhani',
+  instagramHandle: '@bangtan_marvel2.o',
   instagramPublic: 'https://www.instagram.com/bangtan_maervel2.0/',
-instagramPersonal: "https://www.instagram.com/bangtan_marvel2.o?igsh=cHA1bW5sdmExOGNt",};
+  instagramPersonal: "https://www.instagram.com/bangtan_marvel2.o?igsh=cHA1bW5sdmExOGNt",
+};
 
 export const skills = [
-  'Technical Content', 'Product Marketing', 'AI Tutorials', 'SEO / GEO / AEO',
+  'Technical Content', 'Product Marketing', 'AI Tutorials','Creativity',
   'Social Media Marketing', 'Market Research', 'Lead Generation', 'Email Marketing',
-  'HTML', 'CSS', 'JavaScript', 'React.js', 'Node.js', 'Express.js', 'MongoDB', 'SQL', 'Git/GitHub'
+  'HTML', 'CSS', 'JavaScript', 'React.js', 'Node.js', 'Express.js', 'MongoDB', 'Git/GitHub'
 ];
 
 export const projects = [
