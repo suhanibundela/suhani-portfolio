@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Mail, MapPin, Download, Sparkles } from "lucide-react";
+import { Mail, MapPin, Sparkles } from "lucide-react";
 import { profile, skills, projects, experience, education } from "./data/profile";
 
 const A = ({ href, children, className = "" }) => (
@@ -55,7 +55,7 @@ function Navbar() {
   return (
     <nav className="navbar">
       <a className="logo" href="#home">
-        SB<span>.</span>
+        <img src="/assets/professional-photo.jpeg" alt="Suhani Bundela" />
       </a>
       <div className="navlinks">
         <a href="#about">About</a>
@@ -88,28 +88,26 @@ function Hero() {
           <span>Cloud Stories</span>
         </div>
 
-        <div className="heroBtns">
-          <a className="btn primary" href="#projects">
-            View Portfolio
-          </a>
+        <div className="heroActionPanel">
+          <div className="heroBtns">
+            <a className="btn primary" href="#">
+              View Portfolio
+            </a>
 
-          <a className="btn" href="/assets/Suhani_Marketing_Resume.pdf" download>
-            <Download size={18} /> Marketing Resume
-          </a>
+            <a className="btn creatorCta" href="#contact">
+              Let’s Connect
+            </a>
+          </div>
 
-          <a className="btn" href="/assets/Suhani_Developer_Resume.pdf" download>
-            <Download size={18} /> Developer Resume
-          </a>
-        </div>
-
-        <div className="socials">
-          <A href={profile.linkedin}>LinkedIn</A>
-          <A href={profile.github}>GitHub</A>
-          <A href={profile.youtube}>YouTube</A>
-          <A href={profile.instagramPersonal}>Instagram</A>
-          <A href={`mailto:${profile.email}`}>
-            <Mail size={18} /> Email
-          </A>
+          <div className="socials">
+            <A href={profile.instagramPersonal}>Instagram</A>
+            <A href={profile.youtube}>YouTube</A>
+            <A href={profile.linkedin}>LinkedIn</A>
+            <A href={profile.github}>GitHub</A>
+            <A href={`mailto:${profile.email}`}>
+              <Mail size={18} /> Email
+            </A>
+          </div>
         </div>
       </div>
 

@@ -62,9 +62,22 @@ img{
 }
 
 .logo{
-  font-size:28px;
-  font-weight:900;
+  width:54px;
+  height:54px;
+  border-radius:50%;
+  padding:3px;
+  background:linear-gradient(135deg,var(--coral),var(--violet),var(--amber));
+  box-shadow:0 0 28px rgba(255,47,146,.22);
   flex:0 0 auto;
+  overflow:hidden;
+}
+
+.logo img{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  object-fit:cover;
+  object-position:center 28%;
 }
 
 .logo span,
@@ -1593,5 +1606,81 @@ footer{
   .creator,
   .contact{
     background-attachment:scroll;
+  }
+}
+
+/* HERO ACTION CLEANUP */
+.heroActionPanel{
+  width:min(100%,760px);
+  margin-top:30px;
+  padding:18px;
+  border:1px solid rgba(255,119,190,.18);
+  border-radius:30px;
+  background:
+    linear-gradient(135deg,rgba(20,3,18,.76),rgba(47,8,34,.38)),
+    radial-gradient(circle at 12% 0%,rgba(255,47,146,.22),transparent 38%);
+  box-shadow:
+    0 24px 70px rgba(0,0,0,.34),
+    inset 0 1px 0 rgba(255,255,255,.06);
+  backdrop-filter:blur(18px);
+}
+
+.heroActionPanel .heroBtns,
+.heroActionPanel .socials{
+  margin-top:0;
+}
+
+.heroActionPanel .heroBtns{
+  display:grid;
+  grid-template-columns:minmax(180px,.9fr) minmax(160px,.7fr);
+  gap:12px;
+}
+
+.creatorCta{
+  background:rgba(255,255,255,.06);
+  border-color:rgba(255,209,230,.24);
+  color:#ffe4f1;
+}
+
+.heroActionPanel .socials{
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:10px;
+  margin-top:12px;
+}
+
+.heroActionPanel .socials a{
+  min-width:0;
+  width:100%;
+  height:48px;
+  padding:0 12px;
+  border-radius:18px;
+  background:rgba(6,1,7,.58);
+  border-color:rgba(255,119,190,.18);
+  font-size:14px;
+  box-shadow:none;
+}
+
+.heroActionPanel .socials a:first-child{
+  background:linear-gradient(135deg,rgba(255,47,146,.24),rgba(192,38,211,.18));
+  border-color:rgba(255,119,190,.32);
+}
+
+.heroActionPanel .socials a:hover{
+  background:linear-gradient(135deg,rgba(255,47,146,.28),rgba(192,38,211,.2));
+  border-color:rgba(255,209,230,.48);
+}
+
+@media(max-width:900px){
+  .heroActionPanel{
+    margin-left:auto;
+    margin-right:auto;
+  }
+}
+
+@media(max-width:680px){
+  .heroActionPanel .heroBtns,
+  .heroActionPanel .socials{
+    grid-template-columns:1fr;
   }
 }
