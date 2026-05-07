@@ -197,8 +197,7 @@ function Contact() {
       <h2>Let’s build, learn, and grow together.</h2>
 
       <p>
-        For collaboration, portfolio review, internships,
-        technical content, or product marketing work.
+        Let’s connect for collaborations and technical content.
       </p>
 
       <div className="contactProfile">
